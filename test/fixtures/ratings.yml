@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_idfk: MyString
+  : 1
+  review_total: 1
+  total_rated: 1
+
+two:
+  post_idfk: MyString
+  : 1
+  review_total: 1
+  total_rated: 1

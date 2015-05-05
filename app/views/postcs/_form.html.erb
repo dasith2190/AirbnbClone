@@ -1,0 +1,83 @@
+<%= form_for(@postc) do |f| %>
+  <% if @postc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@postc.errors.count, "error") %> prohibited this postc from being saved:</h2>
+
+      <ul>
+      <% @postc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_idfk %><br>
+    <%= f.text_field :user_idfk %>
+  </div>
+
+  <div class="field">
+    <%= f.label :post_title %><br>
+    <%= f.text_field :post_title %>
+  </div>
+  <div class="field">
+    <%= f.label :post_description %><br>
+    <%= f.text_area :post_description, size: '27x10' %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label(:home_type) %><br>
+    <%= f.radio_button(:home_type, "Apartment") %>
+    <%= f.label(:home_type, "Aparment") %>
+    <%= f.radio_button(:home_type, "House") %>
+    <%= f.label(:home_type, "House") %>
+    <%= f.radio_button(:home_type, "Room") %>
+    <%= f.label(:home_type, "Room") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rooms %><br>
+    <%= f.text_field :rooms %>
+  </div>
+  <div class="field">
+    <%= f.label :baths %><br>
+    <%= f.text_field :baths %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :price_type %><br>
+    <%= f.radio_button(:price_type, "per day") %>
+    <%= f.label(:price_type, "Per Day") %>
+    <%= f.radio_button(:price_type, "per week") %>
+    <%= f.label(:price_type, "Per Week") %>
+    <%= f.radio_button(:price_type, "Per Month") %>
+    <%= f.label(:price_type, "Per Month") %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create Listing' %>
+  </div>
+<% end %>

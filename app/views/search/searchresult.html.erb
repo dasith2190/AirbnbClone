@@ -1,0 +1,16 @@
+<h1>Search Results</h1>
+<% @search.each do |postc| %>
+    <div class="single-listing">
+      <div class="listing-pic">
+
+
+        <div class="listing-price">
+          $<%= postc.price %>
+        </div>
+      </div>
+
+      <div class="listing-info">
+        <%= postc.post_title %>
+      </div>
+    </div>
+<%end%>

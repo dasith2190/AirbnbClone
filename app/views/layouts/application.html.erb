@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsProjectCosc617Towson</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<div class="header-wrapper">
+
+  <div class="header-content2">
+    <%=link_to 'home', postcs_path%>
+    <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+    <%=link_to 'Sign up', new_user_registration_path %>
+    <%=link_to 'Log in', new_user_session_path %>
+    <% end %>
+
+    <%=link_to 'List your space'%>
+  </div>
+</div>
+<div class="search-wrapper">
+
+  <div class="search">
+    <p> <%= form_tag '/search/searchresult'  do %>
+
+
+      <%= text_field_tag "search", nil, :placeholder => 'Where do you want to go?' %>
+      <input placeholder="Check In" name="check-in" type="text" onblur="(this.type='text')" onfocus="(this.type='date')"  id="check-in">
+      <input placeholder="Check Out" name="check-out" type="text" onblur="(this.type='text')" onfocus="(this.type='date')"  id="check-out">
+
+
+      <%= submit_tag 'Search'%></p>
+    <%end%>
+  </div>
+</div>
+
+<div class="main">
+  <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+<%= yield %>
+
+</div>
+</body>
+</html>

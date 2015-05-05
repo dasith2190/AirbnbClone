@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_idfk: MyString
+  : MyString
+  post_title: MyString
+  : MyString
+  post_description: MyString
+  : MyString
+  address: MyString
+  : MyString
+  country: MyString
+  : MyString
+  zip: MyString
+  : MyString
+  city: MyString
+  : MyString
+  price: MyString
+  home_type: MyString
+  : MyString
+  rooms: MyString
+  : 1
+  baths: MyString
+  : 1
+  price: MyString
+  : 1
+  price_type: MyString
+  : 1
+
+two:
+  user_idfk: MyString
+  : MyString
+  post_title: MyString
+  : MyString
+  post_description: MyString
+  : MyString
+  address: MyString
+  : MyString
+  country: MyString
+  : MyString
+  zip: MyString
+  : MyString
+  city: MyString
+  : MyString
+  price: MyString
+  home_type: MyString
+  : MyString
+  rooms: MyString
+  : 1
+  baths: MyString
+  : 1
+  price: MyString
+  : 1
+  price_type: MyString
+  : 1
