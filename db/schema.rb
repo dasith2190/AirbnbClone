@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505000518) do
+ActiveRecord::Schema.define(version: 20150516153514) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "message_content"
@@ -29,15 +29,17 @@ ActiveRecord::Schema.define(version: 20150505000518) do
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "picture_id"
-    t.string   "post_id_fk"
+    t.integer  "post_id_fk"
     t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image2"
+    t.string   "image3"
   end
 
   create_table "postcs", force: :cascade do |t|
     t.integer  "postcs_id"
-    t.string   "user_idfk"
+    t.integer  "user_idfk"
     t.string   "post_title"
     t.string   "post_description"
     t.string   "address"

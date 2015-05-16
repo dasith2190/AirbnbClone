@@ -1,6 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Precompile additional assets.
+  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+
+  config.assets.precompile += %w( bx_loader.gif controls.png )
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

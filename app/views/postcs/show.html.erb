@@ -1,79 +1,89 @@
-<p id="notice"><%= notice %></p>
+<script src="/js/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<script type="text/javascript">
 
-<p>
-  <strong>User idfk:</strong>
-  <%= @postc.user_idfk %>
-</p>
-
-
-<p>
-  <strong>Post title:</strong>
-  <%= @postc.post_title %>
-</p>
+    $(document).ready(function(){
 
 
-
-<p>
-  <strong>Post description:</strong>
-  <%= @postc.post_description %>
-</p>
-
-
-
-<p>
-  <strong>Address:</strong>
-  <%= @postc.address %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @postc.country %>
-</p>
+        $('.bxslider').bxSlider();
+        $('.bx-next').click(function(){
+            $('.bxslider').bxSlider();
+        });
+    });
+</script>
 
 
-<p>
-  <strong>Zip:</strong>
-  <%= @postc.zip %>
-</p>
+<%- model_class = Postc -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => @postc.post_title %></h1>
+</div>
 
-<p>
-  <strong>City:</strong>
-  <%= @postc.city %>
-</p>
+<div class="image-div">
+<u1 class="bxslider">
+<% @pics.each do |postc| %>
+    <%if postc%>
+        <li> <%=image_tag(postc.image_url) %></li>
+        <li><%=image_tag(postc.image2)%></li>
 
+<% end %>
+<%end %>
+</u1>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @postc.price %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:post_title) %>:</strong></dt>
+  <dd><%= @postc.post_title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:post_description) %>:</strong></dt>
+  <dd><%= @postc.post_description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @postc.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @postc.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zip) %>:</strong></dt>
+  <dd><%= @postc.zip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @postc.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:home_type) %>:</strong></dt>
+  <dd><%= @postc.home_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rooms) %>:</strong></dt>
+  <dd><%= @postc.rooms %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:baths) %>:</strong></dt>
+  <dd><%= @postc.baths %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @postc.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price_type) %>:</strong></dt>
+  <dd><%= @postc.price_type %></dd>
+</dl>
 
-<p>
-  <strong>Home type:</strong>
-  <%= @postc.home_type %>
-</p>
+<%if current_user && current_user.id==@postc.user_idfk %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              postcs_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_postc_path(@postc), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              postc_path(@postc),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
 
+<%else%>
+    <div class="comments-sec">
 
-<p>
-  <strong>Rooms:</strong>
-  <%= @postc.rooms %>
-</p>
+      <h4>Comments:</h4><br>
 
+      <%=form_for @re, :url => {:controller => "reviews", :action => "create"} do |f| %>
+      <%=f.hidden_field :post_idfk, :value=> @id%>
+      <%= f.text_area :review_desc%><br>
+          <%=f.submit%>
+          <%end %>
 
-<p>
-  <strong>Baths:</strong>
-  <%= @postc.baths %>
-</p>
+      <% @reviews.each do |r| %>
+          <div class="individual-sec">
+        <%=r.created_at  %><br>
+          <%=r.review_desc  %>
+          </div>
+      <%end%>
+    </div>
 
+<%end %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @postc.price %>
-</p>
-
-<p>
-  <strong>Price type:</strong>
-  <%= @postc.price_type %>
-</p>
-
-<%= link_to 'Edit', edit_postc_path(@postc) %> |
-<%= link_to 'Back', postcs_path %>

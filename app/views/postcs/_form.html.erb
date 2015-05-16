@@ -1,83 +1,155 @@
-<%= form_for(@postc) do |f| %>
-  <% if @postc.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@postc.errors.count, "error") %> prohibited this postc from being saved:</h2>
 
-      <ul>
-      <% @postc.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @postc, :html => { :class => "form-horizontal postc" } do |f| %>
+    <% if @postc.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@postc.errors.count, "error") %> prohibited this postc from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @postc.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+
+
+    <div class="control-group">
+      <%= f.label :post_title, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :post_title, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:post_title]) %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :user_idfk %><br>
-    <%= f.text_field :user_idfk %>
-  </div>
 
-  <div class="field">
-    <%= f.label :post_title %><br>
-    <%= f.text_field :post_title %>
-  </div>
-  <div class="field">
-    <%= f.label :post_description %><br>
-    <%= f.text_area :post_description, size: '27x10' %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
+    <div class="control-group">
+      <%= f.label :post_description, :class => 'control-label' %><br>
+      <div class="controls">
+      <%= f.text_area :post_description,:class => 'form-control' , size: '27x10' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label(:home_type) %><br>
-    <%= f.radio_button(:home_type, "Apartment") %>
-    <%= f.label(:home_type, "Aparment") %>
-    <%= f.radio_button(:home_type, "House") %>
-    <%= f.label(:home_type, "House") %>
-    <%= f.radio_button(:home_type, "Room") %>
-    <%= f.label(:home_type, "Room") %>
-  </div>
+    <br><br>
+    <div class="control-group">
+      <%= f.label :address, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :address, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:address]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :country, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :country, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:country]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :zip, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :zip, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:zip]) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :rooms %><br>
-    <%= f.text_field :rooms %>
-  </div>
-  <div class="field">
-    <%= f.label :baths %><br>
-    <%= f.text_field :baths %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :price_type %><br>
-    <%= f.radio_button(:price_type, "per day") %>
-    <%= f.label(:price_type, "Per Day") %>
-    <%= f.radio_button(:price_type, "per week") %>
-    <%= f.label(:price_type, "Per Week") %>
-    <%= f.radio_button(:price_type, "Per Month") %>
-    <%= f.label(:price_type, "Per Month") %>
+    <div class="control-group">
+      <%= f.label :city, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :city, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:city]) %>
+    </div>
 
-  </div>
-  <div class="actions">
-    <%= f.submit 'Create Listing' %>
-  </div>
+    <br><br>
+
+    <div class="field">
+      <%= f.label(:home_type) %><br>
+      <%= f.radio_button(:home_type, "Apartment") %>
+      <%= f.label(:home_type, "Aparment") %>
+      <%= f.radio_button(:home_type, "House") %>
+      <%= f.label(:home_type, "House") %>
+      <%= f.radio_button(:home_type, "Room") %>
+      <%= f.label(:home_type, "Room") %>
+    </div>
+
+
+
+
+    <div class="control-group">
+      <%= f.label :rooms, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :rooms, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:rooms]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :baths, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :baths, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:baths]) %>
+    </div>
+
+    <br><br>
+
+    <div class="control-group">
+      <%= f.label :price, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :price, :class => 'form-control' %>
+      </div>
+      <%= error_span(@postc[:price]) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price_type,  :class => 'control-label'%><br>
+      <%= f.radio_button(:price_type, "per day", :class => 'radio-inline') %>
+      <%= f.label(:price_type, "Per Day",  :class => 'control-label') %>
+      <%= f.radio_button(:price_type, "per week", :class => 'radio-inline') %>
+      <%= f.label(:price_type, "Per Week",  :class => 'control-label') %>
+      <%= f.radio_button(:price_type, "Per Month", :class => 'radio-inline') %>
+      <%= f.label(:price_type, "Per Month",  :class => 'control-label') %>
+    </div>
+
+
+    <% if @new_page==true %>
+    <br><br>
+
+        <%= fields_for(@picture) do |u| %>
+            <div class="control-group">
+              <%=u.label :image_url, :class=>'control'  %>
+
+              <div class="controls">
+                <%= u.text_field('image_url', :class=> 'form-control') %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%=u.label :image_url, :class=>'control'  %>
+
+              <div class="controls">
+                <%= u.text_field 'image2', :class=> 'form-control' %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%=u.label :image_url, :class=>'control'  %>
+
+              <div class="controls">
+                <%= u.text_field('image3', :class=> 'form-control') %>
+              </div>
+            </div>
+
+      <% end %>
+     <% end %>
+
+
+       <br>
+
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                postcs_path, :class => 'btn btn-default' %>
 <% end %>

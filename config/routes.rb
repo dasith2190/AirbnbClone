@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'home/home'
+
   devise_for :users
   #get 'postcs/new'=>'postcs#new'
 
@@ -38,7 +40,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'postcs#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,49 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Postcs</h1>
-
-<table>
-  <tbody>
+<%- model_class = Postc -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => 'My Listings' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <th>User idfk</th>
-      <th>Post title</th>
-      <th>Post description</th>
-      <th>Address</th>
-      <th>Country</th>
-      <th>Zip</th>
-      <th>City</th>
-      <th>Price</th>
-      <th>Home type</th>
-      <th>Rooms</th>
-      <th>Baths</th>
-      <th>Price</th>
-      <th>Price type</th>
-      <th colspan="3"></th>
-    </tr>
 
+      <th><%= model_class.human_attribute_name(:post_title) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:home_type) %></th>
+      <th><%= model_class.human_attribute_name(:rooms) %></th>
+      <th><%= model_class.human_attribute_name(:baths) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:price_type) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
     <% @postcs.each do |postc| %>
       <tr>
-        <td><%= postc.user_idfk %></td>
         <td><%= postc.post_title %></td>
-        <td><%= postc.post_description %></td>
         <td><%= postc.address %></td>
         <td><%= postc.country %></td>
         <td><%= postc.zip %></td>
         <td><%= postc.city %></td>
-        <td><%= postc.price %></td>
         <td><%= postc.home_type %></td>
         <td><%= postc.rooms %></td>
         <td><%= postc.baths %></td>
         <td><%= postc.price %></td>
         <td><%= postc.price_type %></td>
-        <td><%= link_to 'Show', postc %></td>
-        <td><%= link_to 'Edit', edit_postc_path(postc) %></td>
-        <td><%= link_to 'Destroy', postc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_postc_path(postc), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      postc_path(postc),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Postc', new_postc_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_postc_path,
+            :class => 'btn btn-primary' %>

@@ -1,5 +1,5 @@
 class Postc < ActiveRecord::Base
-  has_many :picture
-  has_one :rating
+  has_one :picture
+  has_many :rating
 
 end
