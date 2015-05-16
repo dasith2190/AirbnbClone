@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  root 'home/home'
+  get 'profile/userview/:id'=>'profile#userview'
+  get 'profile/userview'
+
   get 'home/home'
 
   devise_for :users
