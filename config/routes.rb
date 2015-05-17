@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'home/home'
-  get 'profile/userview/:id'=>'profile#userview'
+  post 'profile/create2'
+ get'profile/update'
+  get 'message/inbox', as: :inbox
+  get 'message/indmessage/:id'=>'message#indmessage',as: :indmessage
+  get 'message/sendmessage/:id'=>'message#sendmessage', as: :compose
+  root :to=>'home#home'
+  get 'profile/userview/:id'=>'profile#userview', as: :user_profile
   get 'profile/userview'
 
   get 'home/home'

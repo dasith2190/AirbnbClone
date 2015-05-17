@@ -9,7 +9,6 @@ class PostcsController < ApplicationController
     #@user_idfk=current_user.id
 
     if session_information
-
     @postcs = Postc.where(user_idfk: current_user.id)
       end
   end

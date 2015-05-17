@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516153514) do
+ActiveRecord::Schema.define(version: 20150517032714) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "message_content"
     t.string   "subject"
-    t.string   "to_userid"
-    t.string   "from_userid"
+    t.integer  "to_userid"
+    t.integer  "from_userid"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "message_id"
   end
 
   create_table "new_models", force: :cascade do |t|
@@ -61,6 +62,14 @@ ActiveRecord::Schema.define(version: 20150516153514) do
     t.string   "title"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "user_name"
+    t.string   "user_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "random_gits", force: :cascade do |t|

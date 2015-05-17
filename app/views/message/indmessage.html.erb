@@ -1,0 +1,14 @@
+<h3>Inquiry: Please use the email to continue this conversation</h3><br>
+
+<% @message.each do |f| %>
+    <div class="message-cont">
+     <h4> <%= f.subject%>&nbsp;&nbsp;&nbsp; <%= f.created_at%></h4>
+    <b>  <%= f.message_content%><br>
+
+      <%=f.email %></b>
+
+      <br>
+
+    </div>
+
+<% end%>

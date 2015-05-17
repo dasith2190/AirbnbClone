@@ -67,6 +67,13 @@
               :class => 'btn btn-danger' %>
 
 <%else%>
+
+    <%=link_to 'Send an Inquiry', compose_path(@postc.user_idfk), :class => 'btn btn-primary' %>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%=link_to 'See user profile', user_profile_path(@postc.user_idfk), :class => 'btn btn-primary' %>
+
+
     <div class="comments-sec">
 
       <h4>Comments:</h4><br>
@@ -84,6 +91,4 @@
           </div>
       <%end%>
     </div>
-
 <%end %>
-

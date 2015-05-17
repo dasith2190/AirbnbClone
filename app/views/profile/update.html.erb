@@ -1,0 +1,10 @@
+<table>
+<%= form_for @profile, :url => {:action => "create2" } do |f| %>
+    <tr><td><%= label_tag 'Your Name', "User_name" %></td></tr>
+   <tr><td><%= f.text_field :user_name %></td></tr>
+    <tr><td><%= label_tag 'A message for your profile viewers', "User_desc" %></td></tr>
+   <tr><td><%= f.text_area :user_desc %></td></tr>
+      <tr><td> <%= f.submit "Update", class: 'btn btn-primary' %> </tr></td>
+        <% end %>
+
+      </table>

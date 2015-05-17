@@ -1,3 +1,16 @@
 // Place all the styles related to the message controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.mess-subject{
+  width: 40%;
+  float: left;
+}
+.mess-date{
+  width: 40%;
+  float: left;
+}
+.message-in{
+  min-width: 700px;
+  border-bottom: 2px solid grey;
+  display: inline-block;
+}

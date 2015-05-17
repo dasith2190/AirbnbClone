@@ -1,0 +1,7 @@
+<% @messages.each do |f| %>
+    <div class="message-in">
+    <div class="mess-subject">
+      <h4><%=link_to f.subject,indmessage_path(f)%></h4></div>
+    &nbsp;&nbsp;&nbsp; <div class="mess-date"><h4><%= f.created_at%></h4></div><br>
+    </div>
+<%end%>

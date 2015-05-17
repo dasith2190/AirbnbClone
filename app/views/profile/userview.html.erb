@@ -1,0 +1,42 @@
+
+
+<% @profile.each do |profile| %>
+    <h2>Hey, I am  <%= profile.user_name %></h2>
+    <p> <%= profile.user_desc %></p>
+<% end %>
+
+<%- model_class = Postc -%>
+<table class="table table-striped">
+  <thead>
+  <tr>
+
+    <th><%= model_class.human_attribute_name(:post_title) %></th>
+    <th><%= model_class.human_attribute_name(:address) %></th>
+    <th><%= model_class.human_attribute_name(:country) %></th>
+    <th><%= model_class.human_attribute_name(:zip) %></th>
+    <th><%= model_class.human_attribute_name(:city) %></th>
+    <th><%= model_class.human_attribute_name(:home_type) %></th>
+    <th><%= model_class.human_attribute_name(:rooms) %></th>
+    <th><%= model_class.human_attribute_name(:baths) %></th>
+    <th><%= model_class.human_attribute_name(:price) %></th>
+    <th><%= model_class.human_attribute_name(:price_type) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @post.each do |postc| %>
+      <tr>
+        <td><%= postc.post_title %></td>
+        <td><%= postc.address %></td>
+        <td><%= postc.country %></td>
+        <td><%= postc.zip %></td>
+        <td><%= postc.city %></td>
+        <td><%= postc.home_type %></td>
+        <td><%= postc.rooms %></td>
+        <td><%= postc.baths %></td>
+        <td><%= postc.price %></td>
+        <td><%= postc.price_type %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
