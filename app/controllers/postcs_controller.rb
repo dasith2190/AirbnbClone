@@ -65,7 +65,7 @@ class PostcsController < ApplicationController
   def update
     respond_to do |format|
       if @postc.update(postc_params)
-        format.html { redirect_to @postc, notice: 'Postc was successfully updated.' }
+        format.html { redirect_to @postc, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @postc }
       else
         format.html { render :edit }
